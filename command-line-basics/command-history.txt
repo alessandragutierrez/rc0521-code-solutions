@@ -1,0 +1,189 @@
+    1  exit
+    2  whoami
+    3  git config --global user.name "Alessandra Gutierrez"
+    4  git config --global user.email "alessandragutierrez98@gmail.com"
+    5  git config --global --list
+    6  exit
+    7  whoami
+    8  exit
+    9  git checkout -b es6-const-let
+   10  ls
+   11  cd repos
+   12  ls
+   13  git checkout -b es6-const-let
+   14  exit
+   15  git clone git@github.com:alessandragutierrez/rc0521-code-solutions.git
+   16  ls
+   17  cd repos
+   18  ls
+   19  cd c0521-code-solutions/
+   20  ls
+   21  cd repos
+   22  ls
+   23  cd ~/repos
+   24  ls
+   25  git clone git@github.com:alessandragutierrez/rc0521-code-solutions.git
+   26  npm ci
+   27  ls
+   28  cd rc0521-code-solutions/
+   29  ls
+   30  npm ci
+   31  git checkout -b es6-const-let
+   32  git status
+   33  git add es6-const-let/
+   34  git status
+   35  git commit -m "Completed es6-const-let."
+   36  git push origin es6-const-let 
+   37  git staus
+   38  git checkout master
+   39  git status
+   40  git pull origin
+   41  cd ~/repos/c0521-code-solutions/
+   42  git pull origin
+   43  cd ~/repos/rc0521-code-solutions/
+   44  git checkout -b es6-destructuring
+   45  git status
+   46  git add es6-destructuring/
+   47  git status
+   48  git commit -m 
+   49  git commit -m "Completed es6-destructuring."
+   50  git push origin es6-destructuring 
+   51  git checkout master
+   52  git pull origin
+   53  cd ~/repos/week-planner/
+   54  cd ~/repos/rc0521-code-solutions/
+   55  git status
+   56  git checkout -b es6-template-literals
+   57  git status
+   58  git add es6-template-literals
+   59  git status
+   60  git commit -m "Completed es6-template-literals."
+   61  git push origin es6-template-literals 
+   62  git status
+   63  git add es6-template-literals/
+   64  git status
+   65  git commit -m "revision."
+   66  git push origin es6-template-literals 
+   67  git status
+   68  git checkout master
+   69  git pull origin
+   70  git status
+   71  git checkout -b es6-arrow-functions
+   72  git status
+   73  git restore es6-arrow-functions/
+   74  git status
+   75  git add es6-arrow-functions/
+   76  git status
+   77  git restore es6-arrow-functions/main.js
+   78  git status
+   79  git restore es6-arrow-functions/main.js
+   80  git status
+   81  git add es6-arrow-functions/main.js 
+   82  git status
+   83  git add es6-arrow-functions/main.js 
+   84  git status
+   85  git commit -m "Completed es6-arrow-functions."
+   86  git push origin es6-arrow-functions 
+   87  git checkout master
+   88  git pull origin
+   89  git status
+   90  git checkout command-line-basics
+   91  git checkout -b command-line-basics
+   92  git status
+   93  cd
+   94  ls
+   95  git status
+   96  cd ~/
+   97  git status
+   98  cd ~/repos/rc0521-code-solutions/
+   99  git status
+  100  ls
+  101  git status
+  102  git add command-line-basics/
+  103  git status
+  104  ls
+  105  cd command-line-basics/
+  106  git status
+  107  pwd
+  108  man man
+  109  man cat
+  110  man man
+  111  man cat
+  112  man cat laziness.txt
+  113  cat laziness.txt
+  114  cat impatience.txt
+  115  cat hubris.txt
+  116  man cat
+  117  cat laziness.txt impatience.txt hubris.txt
+  118  cat laziness.txt impatience.txt hubris.txt > three-virtues.txt
+  119  cat three-virtues.txt
+  120  man ls
+  121  ls
+  122  ls -a
+  123  ls -F
+  124  ls lfz-staff/
+  125  ls -a lfz-staff/
+  126  lf -F lfz-staff/
+  127  ls -F lfz-staff/
+  128  ls -aF lfz-staff > lfz-staff/contents.txt
+  129  cat lfz-staff/contents.txt
+  130  man pwd
+  131  ls
+  132  ls -F
+  133  ls lfz-staff
+  134  pwd
+  135  pwd > i-was-here.txt
+  136  ls
+  137  cat i-was-here.txt
+  138  man echo
+  139  echo 'Hello, World!'
+  140  echo 'Hello, World!' > hello.txt
+  141  ls
+  142  cat hello.txt
+  143  man touch
+  144  tough tag-youre-it.txt
+  145  touch tag-youre-it.txt
+  146  ls
+  147  ls snot/
+  148  ls snoot/
+  149  ls snoot
+  150  ls
+  151  ls snoot
+  152  ls
+  153  man touch]
+  154  man touch
+  155  touch boop.txt > snoot
+  156  touch boop.txt > snoot/
+  157  touch snoot
+  158  touch snoot/
+  159  touch snoot > boop.txt
+  160  touch snoot/boop.txt
+  161  ls snoot
+  162  man mkdir
+  163  mkdir parent
+  164  ls
+  165  mkdir parent/child/grandchild
+  166  ls parent
+  167  ls -p parent/child/grandchild
+  168  man mkdir
+  169  mkdir -p parent/child
+  170  mkdir -p parent/child/grandchild
+  171  touch parent/child/grandchild/.gitkeep
+  172  ls -a
+  173  als -a
+  174  ls -a
+  175  ls -a parent/child/grandchild
+  176  man mv
+  177  man rm
+  178  rm lol.txt
+  179  ls 
+  180  rm -r kill-me/
+  181  ls
+  182  man cp
+  183  cp and-then.txt no-and-then.txt
+  184  ls
+  185  cat and-then.txt
+  186  cat no-and-then.txt
+  187  man history
+  188  history
+  189  history > command-history.txt
