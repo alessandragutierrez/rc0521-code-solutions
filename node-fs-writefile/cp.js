@@ -15,16 +15,3 @@ fs.readFile(copySource, 'utf8', function (err, data) {
     }
   });
 });
-
-// fs.readFile('dijkstra.txt', 'utf8', function (err, data) {
-//   if (err) throw err;
-//   console.log(data);
-// });
-
-// const note = process.argv[2];
-// fs.writeFile('note.txt', note + '\n', 'utf8', err => {
-//   if (err) {
-//     console.error(err);
-//     process.exit(1);
-//   }
-// });
