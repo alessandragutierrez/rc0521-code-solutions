@@ -1,5 +1,6 @@
 const fs = require('fs');
 const data = require('./data.json');
+const note = process.argv[3];
 
 const writeFile = () => {
   fs.writeFile('data.json', JSON.stringify(data, null, 2), err => {
@@ -17,18 +18,25 @@ const readNotes = () => {
 };
 
 const addNote = () => {
-  const note = process.argv[3];
-  const noteId = data.nextId;
-  data.notes[noteId] = note;
+  data.notes[data.nextId] = note;
   data.nextId++;
   writeFile();
 };
 
 const deleteNote = () => {
-  const targetNote = process.argv[3];
   for (const key in data.notes) {
-    if (key === targetNote) {
+    if (key === note) {
       delete data.notes[key];
+    }
+  }
+  writeFile();
+};
+
+const updateNote = () => {
+  const update = process.argv[4];
+  for (const key in data.notes) {
+    if (key === note) {
+      data.notes[key] = update;
     }
   }
   writeFile();
@@ -45,5 +53,8 @@ switch (command) {
     break;
   case 'delete':
     deleteNote();
+    break;
+  case 'update':
+    updateNote();
     break;
 }
