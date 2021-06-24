@@ -1,46 +1,7 @@
-const fs = require('fs');
-const data = require('./data.json');
-const note = process.argv[3];
-
-const writeFile = () => {
-  fs.writeFile('data.json', JSON.stringify(data, null, 2), err => {
-    if (err) {
-      console.error(err);
-      process.exit(1);
-    }
-  });
-};
-
-const readNotes = () => {
-  for (const key in data.notes) {
-    console.log(key + ': ' + data.notes[key]);
-  }
-};
-
-const addNote = () => {
-  data.notes[data.nextId] = note;
-  data.nextId++;
-  writeFile();
-};
-
-const deleteNote = () => {
-  for (const key in data.notes) {
-    if (key === note) {
-      delete data.notes[key];
-    }
-  }
-  writeFile();
-};
-
-const updateNote = () => {
-  const update = process.argv[4];
-  for (const key in data.notes) {
-    if (key === note) {
-      data.notes[key] = update;
-    }
-  }
-  writeFile();
-};
+const readNotes = require('./read-notes');
+const addNote = require('./add-note');
+const deleteNote = require('./delete-note');
+const updateNote = require('./update-note');
 
 const command = process.argv[2];
 
