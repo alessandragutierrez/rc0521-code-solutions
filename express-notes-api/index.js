@@ -1,5 +1,6 @@
 const express = require('express');
 const data = require('./data.json');
+const writeFile = require('./write-file');
 const middleware = express.json();
 const app = express();
 app.use(middleware);
@@ -31,6 +32,7 @@ app.post('/api/notes', (req, res) => {
   data.nextId += 1;
   newNote.id = id;
   data.notes[id] = newNote;
+  writeFile();
   if (!data.notes[id]) {
     return res.status(500).json({ error: 'An unexpected error occurred.' });
   }
@@ -45,6 +47,7 @@ app.delete('/api/notes/:id', (req, res) => {
     return res.status(404).json({ error: 'cannot find note with id ' + id });
   }
   delete data.notes[id];
+  writeFile();
   if (data.notes[id]) {
     return res.status(500).json({ error: 'An unexpected error occurred.' });
   }
@@ -61,6 +64,7 @@ app.put('/api/notes/:id', (req, res) => {
     return res.status(404).json({ error: 'cannot find note with id ' + id });
   }
   data.notes[id].content = req.body.content;
+  writeFile();
   if (data.notes[id].content !== req.body.content) {
     return res.status(500).json({ error: 'An unexpected error occurred.' });
   }
