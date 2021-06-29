@@ -9,7 +9,7 @@ app.get('/api/notes', (req, res) => {
   for (const prop in data.notes) {
     notesArray.push(data.notes[prop]);
   }
-  res.json(notesArray);
+  res.status(200).json(notesArray);
 });
 
 app.get('/api/notes/:id', (req, res) => {
@@ -19,7 +19,22 @@ app.get('/api/notes/:id', (req, res) => {
   } else if (!data.notes[id]) {
     return res.status(404).json({ error: 'cannot find note with id ' + id });
   }
-  res.json(data.notes[id]);
+  res.status(200).json(data.notes[id]);
+});
+
+app.post('/api/notes', (req, res) => {
+  if (!req.body.content) {
+    return res.status(400).json({ error: 'content is a required field' });
+  }
+  const newNote = req.body;
+  const id = data.nextId;
+  data.nextId += 1;
+  newNote.id = id;
+  data.notes[id] = newNote;
+  if (!data.notes[id]) {
+    return res.status(500).json({ error: 'An unexpected error occurred.' });
+  }
+  res.status(201).json(newNote);
 });
 
 app.listen(3000, () => {
