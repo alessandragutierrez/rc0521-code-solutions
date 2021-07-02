@@ -37,23 +37,23 @@ app.get('/api/grades', (req, res) => {
 
 app.post('/api/grades', (req, res) => {
   const invalidInputErrors = [];
-  const missingFieldMessage = ' is a required field';
+  const missingFieldMessage = 'is a required field';
   let invalidInput = false;
   if (!req.body.name) {
     invalidInputErrors.push({
-      error: 'name' + missingFieldMessage
+      error: `name ${missingFieldMessage}`
     });
     invalidInput = true;
   }
   if (!req.body.course) {
     invalidInputErrors.push({
-      error: 'course' + missingFieldMessage
+      error: `course ${missingFieldMessage}`
     });
     invalidInput = true;
   }
   if (!req.body.score) {
     invalidInputErrors.push({
-      error: 'score' + missingFieldMessage
+      error: `score ${missingFieldMessage}`
     });
     invalidInput = true;
   }
@@ -98,23 +98,23 @@ app.post('/api/grades', (req, res) => {
 app.put('/api/grades/:gradeId', (req, res) => {
   const gradeId = parseInt(req.params.gradeId, 10);
   const invalidInputErrors = [];
-  const missingFieldMessage = ' is a required field';
+  const missingFieldMessage = 'is a required field';
   let invalidInput = false;
   if (!req.body.name) {
     invalidInputErrors.push({
-      error: 'name' + missingFieldMessage
+      error: `name ${missingFieldMessage}`
     });
     invalidInput = true;
   }
   if (!req.body.course) {
     invalidInputErrors.push({
-      error: 'course' + missingFieldMessage
+      error: `course ${missingFieldMessage}`
     });
     invalidInput = true;
   }
   if (!req.body.score) {
     invalidInputErrors.push({
-      error: 'score' + missingFieldMessage
+      error: `score ${missingFieldMessage}`
     });
     invalidInput = true;
   }
@@ -159,6 +159,40 @@ app.put('/api/grades/:gradeId', (req, res) => {
         });
       } else {
         res.status(200).json(grade);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred.'
+      });
+    });
+});
+
+app.delete('/api/grades/:gradeId', (req, res) => {
+  const gradeId = parseInt(req.params.gradeId, 10);
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
+    return res.status(400).json({
+      error: '"gradeId" must be a positive integer'
+    });
+  }
+
+  const sql = `
+    delete from "grades"
+      where "gradeId" = $1
+      returning *
+  `;
+  const params = [gradeId];
+
+  db.query(sql, params)
+    .then(result => {
+      const grade = result.rows[0];
+      if (!grade) {
+        res.status(404).json({
+          error: `Cannot find grade with 'gradeId' ${gradeId}`
+        });
+      } else {
+        res.sendStatus(204);
       }
     })
     .catch(err => {
