@@ -1,0 +1,60 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+  min-height: 80vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button {
+  font-size: 32px;
+  align-self: center;
+  padding: 22px 44px;
+  box-shadow: 6px 6px 0 0 black;
+  border: 6px solid black;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button-0-clicks {
+  background-color: black;
+  color: white;
+}
+
+.button-3-clicks {
+  background-color: rgb(53, 28, 117);
+  color: white;
+}
+
+.button-6-clicks {
+  background-color: rgb(103, 78, 167);
+  color: white;
+}
+
+.button-9-clicks {
+  background-color: rgb(224, 102, 102);
+  color: white;
+}
+
+.button-12-clicks {
+  background-color: rgb(246, 178, 107);
+}
+
+.button-15-clicks {
+  background-color: rgb(253, 252, 7);
+}
+
+.button-18-clicks {
+  background-color: white;
+}
+
+.click-counter {
+  margin-block: 40px;
+  font-size: 20px;
+}
