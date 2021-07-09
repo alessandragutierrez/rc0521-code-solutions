@@ -1,0 +1,23 @@
+.button-before-click,
+.button-after-click {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 3px 3px 9px 0 rgba(0, 0, 0, 0.3);
+  padding-block: 15px;
+  width: 180px;
+  margin: 10px;
+  font-size: 22px;
+}
+
+.button-before-click {
+  background-color: pink;
+}
+
+.button-before-click:hover {
+  cursor: pointer;
+}
+
+.button-after-click {
+  background-color: lightseagreen;
+  color: white;
+}
