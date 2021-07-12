@@ -4,50 +4,58 @@ class Stopwatch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      stopwatchOn: false,
+      isOn: false,
       count: 0
     };
     this.handlePlayPauseClick = this.handlePlayPauseClick.bind(this);
+    this.handleWatchFaceClick = this.handleWatchFaceClick.bind(this);
   }
 
   handlePlayPauseClick() {
-    this.setState({ stopwatchOn: !this.state.stopwatchOn });
+    this.setState(
+      state => {
+        if (state.isOn) {
+          clearInterval(this.intervalId);
+        } else {
+          this.intervalId = setInterval(() => this.tick(), 1000);
+        }
+        return { isOn: !this.state.isOn };
+      }
+    );
   }
 
-  // tick() {
-  //   this.setState(state => ({ count: this.state.count + 1 }));
-  // }
+  tick() {
+    this.setState({ count: this.state.count + 1 });
+  }
 
-  // startCounting() {
-  //   this.interval = setInterval(() => this.tick(), 1000);
-  // }
-
-  // stopCounting() {
-  //   return clearInterval(this.interval);
-  // }
+  handleWatchFaceClick() {
+    if (!this.state.isOn) {
+      this.setState({ count: 0 });
+    }
+  }
 
   checkState() {
-    // if (this.state.stopwatchOn) {
-    //   this.startCounting();
-    // } else {
-    //   this.stopCounting();
-    // }
     return (
-      this.state.stopwatchOn
-        ? 'fas fa-pause'
-        : 'fas fa-play'
+      this.state.isOn
+        ? {
+            playPauseClass: 'fas fa-pause',
+            watchFaceClass: 'watch-face'
+          }
+        : {
+            playPauseClass: 'fas fa-play',
+            watchFaceClass: 'watch-face hover'
+          }
     );
   }
 
   render() {
-    // console.log(this.state);
     const stopwatchState = this.checkState();
     return (
       <div className="container">
-        <div className="watch-face">
+        <div onClick={this.handleWatchFaceClick} className={stopwatchState.watchFaceClass}>
           <h1 className="count">{this.state.count}</h1>
         </div>
-        <div onClick={this.handlePlayPauseClick} className={stopwatchState}></div>
+        <div onClick={this.handlePlayPauseClick} className={stopwatchState.playPauseClass}></div>
       </div>
     );
   }
