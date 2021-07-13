@@ -1,0 +1,43 @@
+.hidden {
+  display: none;
+}
+
+.form {
+  margin: 40px;
+}
+
+.password-label {
+  font-family: 'Patrick Hand', sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.password-input {
+  width: 200px;
+  height: 30px;
+  font-size: 34px;
+  padding-left: 7px;
+  margin-top: 7px;
+  border: 3px solid black;
+  outline-color: black;
+}
+
+.fa-times,
+.fa-check {
+  font-size: 32px;
+  margin-left: 18px;
+}
+
+.fa-times {
+  color: red;
+}
+
+.fa-check {
+  color: green;
+}
+
+.error-message {
+  margin-top: 5px;
+  font-size: 16px;
+  color: red;
+}
