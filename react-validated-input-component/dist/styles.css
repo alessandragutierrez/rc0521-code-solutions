@@ -22,17 +22,16 @@
   outline-color: black;
 }
 
-.fa-times,
-.fa-check {
+.icon {
   font-size: 32px;
   margin-left: 18px;
 }
 
-.fa-times {
+.icon-red {
   color: red;
 }
 
-.fa-check {
+.icon-green {
   color: green;
 }
 
