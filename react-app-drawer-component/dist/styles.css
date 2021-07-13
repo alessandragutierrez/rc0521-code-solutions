@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  font-family: 'Patrick Hand', sans-serif;
+}
+
+.main {
+  height: 100vh;
+  background-image: url("../images/cube.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 555px;
+}
+
+.menu-icon {
+  font-size: 32px;
+  margin: 10px 15px;
+}
+
+.menu-icon:hover {
+  cursor: pointer;
+}
+
+.app-drawer-background {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.app-drawer-background-show {
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.25s;
+}
+
+.app-drawer-background-hide {
+  width: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.app-drawer {
+  background-color: white;
+  height: 100vh;
+  width: 300px;
+  position: absolute;
+  top: 0;
+}
+
+.app-drawer-closed {
+  left: -300px;
+  transition: left 0.25s;
+}
+
+.app-drawer-opened {
+  left: 0;
+  transition: left 0.25s;
+}
+
+.app-drawer-menu,
+.app-drawer-option {
+  padding: 10px 25px;
+  letter-spacing: 1px;
+}
+
+.app-drawer-option:hover {
+  cursor: pointer;
+  background-color: #e7e7e7;
+}
