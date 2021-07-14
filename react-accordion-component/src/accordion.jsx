@@ -10,7 +10,9 @@ class Accordion extends React.Component {
   }
 
   handleClick(event) {
-    this.setState({ topicOpen: event.target.textContent });
+    event.target.textContent === this.state.topicOpen
+      ? this.setState({ topicOpen: null })
+      : this.setState({ topicOpen: event.target.textContent });
   }
 
   renderTopics() {
@@ -30,7 +32,6 @@ class Accordion extends React.Component {
   }
 
   render() {
-    // console.log(this.state.topicOpen);
     const topicElements = this.renderTopics();
     return (
       <div className="accordion-container">{topicElements}</div>
