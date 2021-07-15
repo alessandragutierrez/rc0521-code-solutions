@@ -9,6 +9,11 @@ class Carousel extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  resetInterval() {
+    clearInterval(this.interval);
+    this.interval = setInterval(() => this.handleRightArrowClick(), 3000);
+  }
+
   handleClick(event) {
     return (
       event.target.className.includes('arrow-left')
@@ -69,6 +74,7 @@ class Carousel extends React.Component {
   }
 
   render() {
+    this.resetInterval();
     const images = this.renderImages();
     const progressDots = this.renderProgressDots();
     return (
