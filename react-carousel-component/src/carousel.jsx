@@ -6,24 +6,14 @@ class Carousel extends React.Component {
     this.state = {
       currentImageId: this.props.images[0].id
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleLeftArrowClick = this.handleLeftArrowClick.bind(this);
+    this.handleRightArrowClick = this.handleRightArrowClick.bind(this);
+    this.handleProgressDotClick = this.handleProgressDotClick.bind(this);
   }
 
   resetInterval() {
     clearInterval(this.interval);
     this.interval = setInterval(() => this.handleRightArrowClick(), 3000);
-  }
-
-  handleClick(event) {
-    return (
-      event.target.className.includes('arrow-left')
-        ? this.handleLeftArrowClick()
-        : event.target.className.includes('arrow-right')
-          ? this.handleRightArrowClick()
-          : event.target.className.includes('progress-dot')
-            ? this.handleProgressDotClick()
-            : null
-    );
   }
 
   handleLeftArrowClick() {
@@ -42,16 +32,15 @@ class Carousel extends React.Component {
     this.setState({ currentImageId: this.props.images[currentIndex + 1].id });
   }
 
-  handleProgressDotClick() {
-    const targetIndex = this.props.images.findIndex(element => element.id === event.target.id);
-    this.setState({ currentImageId: this.props.images[targetIndex].id });
+  handleProgressDotClick(imageId) {
+    this.setState({ currentImageId: imageId });
   }
 
   renderImages() {
     const images = this.props.images;
     return (
       images.map(image =>
-        <img key={image.id} src={image.url} id={image.id} className={
+        <img key={image.id} src={image.url} className={
           this.state.currentImageId === image.id
             ? 'image-show'
             : 'image-hide'
@@ -64,7 +53,7 @@ class Carousel extends React.Component {
     const images = this.props.images;
     return (
       images.map(image =>
-        <i key={image.id} onClick={this.handleClick} id={image.id} className={
+        <i key={image.id} onClick={() => this.handleProgressDotClick(image.id)} className={
           this.state.currentImageId === image.id
             ? 'fas fa-circle progress-dot'
             : 'far fa-circle progress-dot'
@@ -80,7 +69,7 @@ class Carousel extends React.Component {
     return (
       <div className="container">
         <div className="carousel-container row">
-          <div onClick={this.handleClick} className="fas fa-chevron-left arrow column arrow-left"></div>
+          <div onClick={this.handleLeftArrowClick} className="fas fa-chevron-left arrow column arrow-left"></div>
           <div className="column">
             <div className="image-container">
               {images}
@@ -89,7 +78,7 @@ class Carousel extends React.Component {
               {progressDots}
             </div>
           </div>
-          <div onClick={this.handleClick} className="fas fa-chevron-right arrow column arrow-right"></div>
+          <div onClick={this.handleRightArrowClick} className="fas fa-chevron-right arrow column arrow-right"></div>
         </div>
       </div>
     );
